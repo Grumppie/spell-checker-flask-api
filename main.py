@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, request
-from flask_cors import cross_origin
 from spellchecker import SpellChecker
 import json
 import os
