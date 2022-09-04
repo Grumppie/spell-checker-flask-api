@@ -13,7 +13,12 @@ def index():
     if request.method == 'GET':
         return 'hi'
     word = json.loads(request.data)['Log']
-    response = jsonify(correct=spell.correction(word))
+    words = word.split(' ')
+    res = True
+    for word in words:
+        if word != spell.correction(word):
+            res = False
+    response = jsonify(correct=res)
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
